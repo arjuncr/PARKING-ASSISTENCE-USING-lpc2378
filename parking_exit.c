@@ -11,7 +11,6 @@ void motor_left(void);
 void motor_right(void);
 void motor_delay(void);
 
-
 void key_pad_init(void);
 char key_pad(void);
 void get_data(void);
@@ -78,18 +77,11 @@ for(j=0;j<4;j++)
 	}
 	time0[t]='\0';
 	
-	
-	
-	
+		
 	lcd_clear();
 	for(l=0;pass[l]!=0;l++)
 	   lcd_disp(pass[l]);
-	  
-	
-	
-	
-	
-	
+	  	
 	while(1)
 	{
 	if(int0)
@@ -275,7 +267,6 @@ for(j=100000;j!=0;j--);
 }
 
 
-
 /* ************************* KeyPad Function ****************************  */
 
 void key_pad_init(void) /* Keypad Initialization P3.0 TO P3.3 --OUTPUT -row
@@ -408,24 +399,19 @@ key_pad_init();
 void lcd_disp(char s)
 { 
 
-	int c=0,f=0,g,h;
-	
-		
-			           
-			           g=s&0xf0;
-                       h=s&0x0f;				
-             
-                       c=g<<20;
-			
-			           f=h<<24;
+	int c=0,f=0,g,h;		           
+	g=s&0xf0;
+        h=s&0x0f;				          
+        c=g<<20;			
+	f=h<<24;
 				
-			           delay1(5);
-			           IOPIN1=0x90000000|c;
-			           IOPIN1=c;
-			           delay1(5);
-				       IOPIN1=0x90000000|f;
-			           IOPIN1=f;
-	                   delay1(5);
+	delay1(5);
+	IOPIN1=0x90000000|c;
+	IOPIN1=c;
+	delay1(5);
+	IOPIN1=0x90000000|f;
+        IOPIN1=f;
+        delay1(5);
                   
 }
 
@@ -458,7 +444,7 @@ void delay1(int a)
 {
 			
 		    IOPIN1=0x80000000;
-			IOPIN1=0x00000000;
+		    IOPIN1=0x00000000;
 		    delay1(5);
 		    IOPIN1=0x81000000;
 		    IOPIN1=0x01000000;
